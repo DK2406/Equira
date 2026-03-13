@@ -1,0 +1,33 @@
+[
+  {
+    "id": "pm_kisan",
+    "name": "PM Kisan Samman Nidhi",
+    "description": "Financial support of ₹6,000 per year for farmer families.",
+    "rules": {
+      "occupation": ["farmer"],
+      "income_limit": 2000000, 
+      "land_owner": true
+    },
+    "explanation": "Must be a land-holding farmer family."
+  },
+  {
+    "id": "ayushman_bharat",
+    "name": "Ayushman Bharat (PM-JAY)",
+    "description": "Health cover of ₹5 lakhs per family per year.",
+    "rules": {
+      "income_limit": 500000,
+      "has_ration_card": true
+    },
+    "explanation": "Available for low-income families identified in SECC data."
+  },
+  {
+    "id": "free_bus_scheme",
+    "name": "Zero Ticket Bus Travel Scheme for Women",
+    "description": "Free travel for women in government town buses.",
+    "rules": {
+      "gender": ["female"],
+      "state_residence": "tamilnadu"
+    },
+    "explanation": "Open to all women residing in the state."
+  }
+]

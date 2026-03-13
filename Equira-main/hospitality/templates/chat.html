@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equira & Rural Health Connect</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #2563eb;
+        --secondary-color: #f1f5f9;
+        --text-color: #1e293b;
+        --light-text: #64748b;
+        --success-color: #22c55e;
+        --radius: 12px;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: #f8fafc;
+        margin: 0;
+        padding: 20px;
+        color: var(--text-color);
+        height: 100vh;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .chat-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        border-radius: var(--radius);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        border: 1px solid #e2e8f0;
+        flex: 1;
+      }
+
+      .header {
+        background: linear-gradient(135deg, var(--primary-color), #1e40af);
+        color: white;
+        padding: 1.25rem;
+        text-align: center;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      .header h1 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+      }
+
+      .header p {
+        margin: 0.5rem 0 0;
+        font-size: 0.875rem;
+        opacity: 0.9;
+        font-weight: 300;
+      }
+
+      .chat-box {
+        flex: 1;
+        overflow-y: auto;
+        padding: 1.5rem;
+        background-color: #f8fafc;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .message {
+        margin-bottom: 0;
+        max-width: 85%;
+        padding: 0.75rem 1rem;
+        border-radius: 18px;
+        line-height: 1.5;
+        word-wrap: break-word;
+        font-size: 0.95rem;
+      }
+
+      .user-msg {
+        background: var(--primary-color);
+        color: white;
+        align-self: flex-end;
+        border-bottom-right-radius: 4px;
+        box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+      }
+
+      .bot-msg {
+        background: white;
+        color: var(--text-color);
+        align-self: flex-start;
+        border-bottom-left-radius: 4px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e2e8f0;
+      }
+
+      .input-area {
+        background: white;
+        border-top: 1px solid #e2e8f0;
+        padding: 1rem;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      input {
+        flex: 1;
+        padding: 0 1rem;
+        height: 48px;
+        border: 2px solid #e2e8f0;
+        border-radius: 24px;
+        outline: none;
+        font-family: inherit;
+        font-size: 0.95rem;
+        transition: all 0.2s;
+        background: #f8fafc;
+        box-sizing: border-box;
+      }
+
+      input:focus {
+        border-color: var(--primary-color);
+        background: white;
+      }
+
+      button {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 0 1.25rem;
+        height: 48px;
+        border-radius: 24px;
+        cursor: pointer;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: all 0.2s;
+        flex-shrink: 0;
+      }
+
+      button:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
+      }
+
+      .loc-btn {
+        background: var(--secondary-color);
+        color: var(--text-color);
+        padding: 0 1rem;
+      }
+      .loc-btn:hover {
+        background: #e2e8f0;
+      }
+
+      .typing {
+        font-size: 0.8rem;
+        color: var(--light-text);
+        margin-left: 1.5rem;
+        display: none;
+        margin-bottom: 0.5rem;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chat-container">
+      <div class="header">
+        <h1>Equira + Rural Health Connect</h1>
+        <p>AI Assistant for Schemes & Healthcare</p>
+      </div>
+      <div class="chat-box" id="chatBox">
+        <div class="message bot-msg">
+          Hello! I am your AI assistant. I can help you with:<br /><br />
+          1. Finding nearby <b>hospitals</b><br />
+          2. Checking <b>scheme eligibility</b><br /><br />
+          How can I help you today?
+        </div>
+      </div>
+      <div class="typing" id="typingIndicator">AI is typing...</div>
+      <div class="input-area">
+        <button onclick="getLocation()" class="loc-btn" title="Send GPS">
+          <i class="fas fa-location-dot"></i>
+        </button>
+        <input
+          type="text"
+          id="userInput"
+          placeholder="Type a message..."
+          onkeypress="handleEnter(event)"
+        />
+        <button onclick="sendMessage()">
+          Send <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const chatBox = document.getElementById("chatBox");
+
+      function appendMessage(text, isUser) {
+        const div = document.createElement("div");
+        div.className = `message ${isUser ? "user-msg" : "bot-msg"}`;
+        div.innerHTML = text; // Allow HTML for line breaks
+        chatBox.appendChild(div);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+
+      function handleEnter(e) {
+        if (e.key === "Enter") sendMessage();
+      }
+
+      function sendMessage() {
+        const input = document.getElementById("userInput");
+        const text = input.value.trim();
+        if (!text) return;
+
+        appendMessage(text, true);
+        input.value = "";
+        document.getElementById("typingIndicator").style.display = "block";
+
+        fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: text }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            document.getElementById("typingIndicator").style.display = "none";
+            appendMessage(data.response, false);
+            // If data contains special payload like location request
+            if (data.action === "request_location") {
+              getLocation();
+            }
+          })
+          .catch((err) => {
+            console.error(err);
+            document.getElementById("typingIndicator").style.display = "none";
+          });
+      }
+
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              const lat = position.coords.latitude;
+              const lon = position.coords.longitude;
+              // Send hidden system message with location
+              fetch("/api/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: `MY_LOCATION:${lat},${lon}` }),
+              })
+                .then((res) => res.json())
+                .then((data) => appendMessage(data.response, false));
+            },
+            () => {
+              appendMessage(
+                "<i>Unable to access location. Please type your city name.</i>",
+                false,
+              );
+            },
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

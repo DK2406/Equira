@@ -1,0 +1,370 @@
+[
+  {
+    "id": 1,
+    "name": "Government Primary Health Centre, Athur",
+    "type": "Government PHC",
+    "latitude": 11.5865,
+    "longitude": 78.2345,
+    "address": "Main Road, Athur Village, Salem District",
+    "phone": "+91-427-2345678",
+    "emergency_services": true,
+    "specialties": [
+      "general",
+      "fever",
+      "snake bite",
+      "first aid"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "City Multi-Specialty Hospital",
+    "type": "Private",
+    "latitude": 11.601,
+    "longitude": 78.25,
+    "address": "45, Gandhi Road, Salem",
+    "phone": "+91-98765-43210",
+    "emergency_services": true,
+    "specialties": [
+      "cardiac",
+      "accident",
+      "surgery",
+      "trauma"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Community Maternity Center",
+    "type": "Government",
+    "latitude": 11.59,
+    "longitude": 78.22,
+    "address": "Near Bus Stand, Athur",
+    "phone": "+91-427-2223333",
+    "emergency_services": false,
+    "specialties": [
+      "pregnancy",
+      "delivery",
+      "pediatric",
+      "maternity"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Rural Clinic & Pharmacy",
+    "type": "Private Clinic",
+    "latitude": 11.55,
+    "longitude": 78.21,
+    "address": "South Street, Narasingapuram",
+    "phone": "+91-99887-77665",
+    "emergency_services": false,
+    "specialties": [
+      "fever",
+      "general",
+      "cold"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "District General Hospital",
+    "type": "Government Hospital",
+    "latitude": 11.6643,
+    "longitude": 78.146,
+    "address": "Collectorate Area, Salem",
+    "phone": "108",
+    "emergency_services": true,
+    "specialties": [
+      "accident",
+      "cardiac",
+      "snake bite",
+      "poison",
+      "burns"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Thanthai Periyar Government Headquarters Hospital",
+    "type": "Government",
+    "latitude": 11.339915963340157,
+    "longitude": 77.7175165367661,
+    "address": "EVN Rd, Kaikolar Thottam, Erode, Tamil Nadu 638009",
+    "phone": "+917373000151",
+    "emergency_services": true,
+    "specialties": [
+      "pregnancy",
+      "delivery",
+      "general",
+      "maternity",
+      "burn",
+      "snake bite"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "KMCH Speciality Hospital",
+    "type": "Private",
+    "latitude": 11.339664812871652,
+    "longitude": 77.71626394518272,
+    "address": "16 GH, Palaniappa St, Nggo Colony, Erode, Tamil Nadu 638009",
+    "phone": "+919788822223",
+    "emergency_services": true,
+    "specialties": [
+      "pregnancy",
+      "delivery",
+      "general",
+      "maternity",
+      "burn",
+      "snake bite",
+      "surgery"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "P.K. Hospital",
+    "type": "Private",
+    "latitude": 11.33914936200328,
+    "longitude": 77.71641414886084,
+    "address": "Palaniappa St, Nggo Colony, Erode, Tamil Nadu 638009",
+    "phone": "+919994453882",
+    "emergency_services": true,
+    "specialties": [
+      "pregnancy",
+      "delivery",
+      "general",
+      "snake bite",
+      "first aid"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Bharath Hospital",
+    "type": "Private",
+    "latitude": 11.337087549234457,
+    "longitude": 77.71867256885464,
+    "address": "8PP9+QFP, Power House Rd, Kaikolar Thottam, Chidambaram Colony, Erode, Tamil Nadu 638001",
+    "phone": "+917947140660",
+    "emergency_services": false,
+    "specialties": [
+      "pregnancy",
+      "general",
+      "snake bite",
+      "first aid"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "LKM Hospital",
+    "type": "Private",
+    "latitude": 11.333673954057147,
+    "longitude": 77.71909635789656,
+    "address": "61/1, Mosuvanna St, Kaikolar Thottam, Erode, Tamil Nadu 638001",
+    "phone": "+919994453882",
+    "emergency_services": false,
+    "specialties": [
+      "pregnancy",
+      "delivery",
+      "general",
+      "first aid"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Care 24 Medical Center & Hospital",
+    "type": "Private",
+    "latitude": 11.3268028769621,
+    "longitude": 77.688236794985,
+    "address": "No: 78/1-10, Perundurai Road, Parimalam Mahal, behind Skoda Show Room, Erode, Tamil Nadu 638012",
+    "phone": "04242666666",
+    "emergency_services": false,
+    "specialties": [
+      "pregnancy",
+      "delivery",
+      "general",
+      "first aid",
+      "snake bite",
+      "burn"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Erode Emergency Care Hospital",
+    "type": "Private",
+    "latitude": 11.3322210678317,
+    "longitude": 77.6826185678836,
+    "address": "8MJM+V3R, Maruthi Nagar, Erode, Tamil Nadu 638012",
+    "phone": "+917947127054",
+    "emergency_services": false,
+    "specialties": [
+      "pregnancy",
+      "delivery",
+      "general",
+      "first aid"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "TPN Hospitals",
+    "type": "Private",
+    "latitude": 11.327772998354908,
+    "longitude": 77.69281305080736,
+    "address": "194, Perundurai Road, Veerapam Palayam Pirivu, near Honda showroom, Erode, Tamil Nadu 638012",
+    "phone": "04242264500",
+    "emergency_services": false,
+    "specialties": [
+      "pregnancy",
+      "gynaecology",
+      "spine",
+      "ortho"
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Senthil Multi Speciality Hospital",
+    "type": "Private",
+    "latitude": 11.339057213621313,
+    "longitude": 77.71446772140698,
+    "address": "NATESAR MILL COMPOUND, 547, Perundurai Rd, behind senthil multispeciality hospital, near Trust Hospital, Nggo Colony, Erode, Tamil Nadu 638011",
+    "phone": "+918883055555",
+    "emergency_services": true,
+    "specialties": [
+      "pregnancy",
+      "delivery",
+      "general",
+      "first aid"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Medway Hospitals",
+    "type": "Private",
+    "latitude": 11.336708739011772,
+    "longitude": 77.63667936244322,
+    "address": "West Pudhur Main Street, No: 132, Perundurai Road, Nasiyanur, Erode, Tamil Nadu 638107",
+    "phone": "+919698112500",
+    "emergency_services": true,
+    "specialties": [
+      "pregnancy",
+      "delivery",
+      "general",
+      "first aid"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Sudha Hospitals",
+    "type": "Private",
+    "latitude": 11.337137672881898,
+    "longitude": 77.71089854907693,
+    "address": "No.162, 181, Perundurai Rd, Edayankattuvalasu, Erode, Tamil Nadu 638011",
+    "phone": "+919698112500",
+    "emergency_services": true,
+    "specialties": [
+      "pregnancy",
+      "delivery",
+      "general",
+      "first aid",
+      "surgery",
+      "cardio",
+      "snake bite"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "KG Hospital",
+    "type": "Private",
+    "latitude": 11.000990182046145,
+    "longitude": 76.97187390592133,
+    "address": "5, Government Arts College Rd, Opposite Court, Gopalapuram, Coimbatore, Tamil Nadu 641018",
+    "phone": "04224042121",
+    "emergency_services": true,
+    "specialties": [
+      "pregnancy",
+      "delivery",
+      "general",
+      "first aid"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "PSG Hospitals",
+    "type": "Private",
+    "latitude": 11.018626524209113,
+    "longitude": 77.006895366175,
+    "address": "Avinashi Rd, Peelamedu, Coimbatore, Tamil Nadu 641004",
+    "phone": "04224345353",
+    "emergency_services": true,
+    "specialties": [
+      "pregnancy",
+      "delivery",
+      "general",
+      "first aid"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Kovai Medical Center and Hospital - Best Multi Speciality Hospital",
+    "type": "Private",
+    "latitude": 11.044995093037922,
+    "longitude": 77.03965586434518,
+    "address": "99, Avinashi Road, Peelamedu - Pudur Main Rd, Civil Aerodrome Post, Coimbatore, Tamil Nadu 641014",
+    "phone": "04224323800",
+    "emergency_services": true,
+    "specialties": [
+      "pregnancy",
+      "delivery",
+      "general",
+      "first aid",
+      "maternity",
+      "snake bite",
+      "burn"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Sanitorium Hospital",
+    "type": "Private",
+    "latitude": 11.044995093037922,
+    "longitude": 77.03965586434518,
+    "address": "7HM7+566, SH 196, Tamil Nadu 638053",
+    "emergency_services": true,
+    "specialties": [
+      "pregnancy",
+      "delivery",
+      "general",
+      "first aid",
+      "maternity",
+      "snake bite",
+      "burn"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "GEM Hospital Coimbatore",
+    "type": "Private",
+    "latitude": 11.003666156736926,
+    "longitude": 76.99340404023701,
+    "address": "45, Pankaja Mills Rd, Palaniappa Nagar, Sowripalayam Pirivu, Ramanathapuram, Coimbatore, Tamil Nadu 641045",
+    "phone": "04224695100",
+    "emergency_services": true,
+    "specialties": [
+      "liver",
+      "kidney",
+      "stone"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "ARS Hospital",
+    "type": "Private",
+    "latitude": 11.044995093037922,
+    "longitude": 77.03965586434518,
+    "address": "38QW+3P3, 6/53 , 6th Street,, Thennapalayam Extension, Palladam Road, Tiruppur, Tamil Nadu 641604",
+    "phone": "09786656711",
+    "emergency_services": true,
+    "specialties": [
+      "pregnancy",
+      "delivery",
+      "general",
+      "first aid",
+      "burn"
+    ]
+  }
+]

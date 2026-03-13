@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rural Health Connect</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/static/style.css" />
+    <style>
+      .hidden {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <button onclick="goBack()" class="back-btn" title="Go Back">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="logo-section">
+          <i class="fas fa-heartbeat fa-2x logo-icon"></i>
+          <span class="logo-text">Rural Health Connect</span>
+        </div>
+        <div class="header-controls">
+          <select
+            id="language-selector"
+            onchange="changeLanguage()"
+            class="lang-select"
+          >
+            <option value="en">English</option>
+            <option value="ta">தமிழ் (Tamil)</option>
+            <option value="hi">हिंदी (Hindi)</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="main-card">
+        <div class="card-header-icon">
+          <i class="fas fa-hospital-user fa-3x"></i>
+        </div>
+        <h2 id="t-title">Find Nearby Medical Help</h2>
+        <p class="subtitle" id="t-subtitle">
+          Connect with rural hospitals instantly and securely.
+        </p>
+
+        <section class="search-section">
+          <div class="input-row">
+            <button onclick="useGPS()" class="gps-btn">
+              <i class="fas fa-crosshairs"></i>
+              <span id="t-gps">Use My Location</span>
+            </button>
+            <div class="or-divider" id="t-or">OR</div>
+            <input
+              type="text"
+              id="location-input"
+              placeholder="Enter Village / Pincode"
+            />
+          </div>
+
+          <div class="filter-row">
+            <label for="emergency-type" id="t-emergency">Emergency Type:</label>
+            <select id="emergency-type">
+              <option value="all">All Services</option>
+              <option value="accident">Accident / Trauma</option>
+              <option value="pregnancy">Pregnancy / Delivery</option>
+              <option value="snake bite">Snake Bite</option>
+              <option value="fever">Fever / Infection</option>
+              <option value="cardiac">Heart / Cardiac</option>
+            </select>
+          </div>
+
+          <button onclick="findHospitals()" class="action-btn">
+            <i class="fas fa-search"></i>
+            <span id="t-find">Find Hospitals</span>
+          </button>
+        </section>
+
+        <div id="loading-spinner" class="hidden">
+          <i class="fas fa-spinner fa-spin"></i> Searching...
+        </div>
+
+        <div id="map"></div>
+        <div id="results-container"></div>
+      </div>
+    </main>
+
+    <footer>
+      <p id="t-footer">
+        © 2026 Rural Health Connect. Empowering Citizens with Healthcare.
+      </p>
+    </footer>
+
+    <button class="chat-btn" onclick="toggleChat()">
+      <i class="fas fa-comment-medical"></i>
+    </button>
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-header">
+        <span
+          ><i class="fas fa-robot"></i>
+          <span id="t-ai-help">AI Assistant</span></span
+        >
+        <button class="close-chat" onclick="toggleChat()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="chat-body" id="chatBody">
+        <div class="msg bot">
+          Hello! How can I help you regarding medical services today?
+        </div>
+      </div>
+      <div class="chat-input">
+        <input
+          type="text"
+          id="chatInput"
+          placeholder="Type here..."
+          onkeypress="handleChatKey(event)"
+        />
+        <button onclick="sendMessage()">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/static/translations.js"></script>
+    <script src="/static/script.js"></script>
+    <script>
+      // Configure Map Layers
+      window.addEventListener("load", () => {
+        if (typeof map !== "undefined") {
+          map.eachLayer((layer) => {
+            if (layer instanceof L.TileLayer) map.removeLayer(layer);
+          });
+
+          const terrain = L.tileLayer(
+            "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            {
+              attribution: "&copy; OpenStreetMap contributors",
+            },
+          );
+
+          const satellite = L.tileLayer(
+            "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+            {
+              attribution:
+                "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+            },
+          );
+
+          terrain.addTo(map);
+          L.control
+            .layers({ Terrain: terrain, Satellite: satellite })
+            .addTo(map);
+        }
+      });
+    </script>
+  </body>
+</html>
